@@ -3,7 +3,6 @@ import { StyleSheet, Text, Image, Dimensions, View } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import { SvgFromUri } from "react-native-svg";
 import { MaterialIcons, Entypo, FontAwesome } from "@expo/vector-icons";
 
 interface ShopProps extends RectButtonProps {
@@ -26,7 +25,6 @@ interface ShopProps extends RectButtonProps {
 }
 
 export const CardPrimary = ({ data, ...rest }: ShopProps) => {
-  const encodedData = data.Foto;
   var base64Icon = `data:image/png;base64,${data.Foto}`;
   return (
     <RectButton style={styles.container} {...rest}>
@@ -35,31 +33,16 @@ export const CardPrimary = ({ data, ...rest }: ShopProps) => {
         source={{ uri: base64Icon }}
         resizeMode="contain"
       />
-      <View style={styles.rows}>
-        <FontAwesome name="institution" size={24} color="black" />
-        <Text style={styles.text}>{data.Nome}</Text>
-      </View>
-      <View style={styles.rows}>
-        <MaterialIcons name="description" size={24} color="black" />
-        <Text style={styles.text}>{data.DescricaoCurta}</Text>
-      </View>
-      <View style={styles.rows}>
-        <Entypo name="address" size={24} color="black" />
-        <Text style={styles.text}>{data.Endereco}</Text>
-      </View>
-      {/* <View style={styles.rows}>
-        <Entypo name="phone" size={24} color="black" />
-        {data.Telefone1 ? (
-          <Text style={styles.text}>{data.Telefone1}</Text>
-        ) : (
-          <Text style={styles.text}>n/a</Text>
-        )}
-      </View>
-      <View style={styles.rows}>
-        <MaterialIcons name="email" size={24} color="black" />
-
-        <Text style={styles.text}>{data.Email}</Text>
-      </View> */}
+      <>
+        <View style={styles.rows}>
+          <FontAwesome name="institution" size={24} color="black" />
+          <Text style={styles.text}>{data.Nome}</Text>
+        </View>
+        <View style={styles.rows}>
+          <MaterialIcons name="description" size={24} color="black" />
+          <Text style={styles.text}>{data.DescricaoCurta}</Text>
+        </View>
+      </>
     </RectButton>
   );
 };
@@ -70,15 +53,13 @@ const styles = StyleSheet.create({
     maxWidth: "100%",
     backgroundColor: colors.white,
     padding: 15,
-    // borderRadius: 20,
-    paddingVertical: 15,
+    paddingVertical: 10,
     margin: 10,
-    // alignItems: "center",
   },
+  division: {},
   text: {
     color: colors.black,
     fontFamily: fonts.text,
-    // marginVertical: 16,
     marginLeft: 12,
   },
   image: {
