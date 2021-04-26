@@ -18,7 +18,7 @@ export function ThankYou() {
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate("CarShopSelection");
+    navigation.navigate("Welcome");
   }
 
   return (

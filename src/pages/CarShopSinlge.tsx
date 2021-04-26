@@ -88,7 +88,12 @@ export function CarShopSingle() {
         </View>
         <View style={styles.rows}>
           <Entypo name="phone" size={24} color="black" />
-          <Text style={styles.text}>{shop.Telefone1}</Text>
+
+          {shop.Telefone1 ? (
+            <Text style={styles.text}>{shop.Telefone1}</Text>
+          ) : (
+            <Text style={styles.text}>n/a</Text>
+          )}
         </View>
         <View style={styles.rows}>
           <MaterialIcons name="email" size={24} color="black" />

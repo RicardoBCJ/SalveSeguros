@@ -47,14 +47,19 @@ export const CardPrimary = ({ data, ...rest }: ShopProps) => {
         <Entypo name="address" size={24} color="black" />
         <Text style={styles.text}>{data.Endereco}</Text>
       </View>
-      <View style={styles.rows}>
+      {/* <View style={styles.rows}>
         <Entypo name="phone" size={24} color="black" />
-        <Text style={styles.text}>{data.Telefone1}</Text>
+        {data.Telefone1 ? (
+          <Text style={styles.text}>{data.Telefone1}</Text>
+        ) : (
+          <Text style={styles.text}>n/a</Text>
+        )}
       </View>
       <View style={styles.rows}>
         <MaterialIcons name="email" size={24} color="black" />
+
         <Text style={styles.text}>{data.Email}</Text>
-      </View>
+      </View> */}
     </RectButton>
   );
 };
